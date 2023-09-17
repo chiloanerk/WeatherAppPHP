@@ -23,7 +23,11 @@ $locationData = new LocationProcessor($cityName, $latitude, $longitude);
 // Retrieve the weather data
 $weatherData = new DataProcessor($locationData->apiKey, $locationData->getLatitude(), $locationData->getLongitude());
 $currentWeather = $weatherData->getCurrentWeather();
+
+$messages = $weatherData->messages;
+
 view('home/index', [
     'currentWeather' => $currentWeather,
-    'cityName' => $locationData->getCityName()
+    'cityName' => $locationData->getCityName(),
+    'messages' => $messages
 ]);

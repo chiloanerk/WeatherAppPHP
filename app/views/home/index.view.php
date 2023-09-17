@@ -23,6 +23,9 @@
     <div class="flex items-center justify-center rounded-xl p-2 bg-gray-100">
         <div>
             <h1>Current Weather</h1>
+            <h1><?php foreach ($messages as $message) {
+                echo $message . "<br>";
+                } ?></h1>
             <?php if ($currentWeather): ?>
                 <p>City: <?php echo $cityName; ?></p>
                 <p>Temperature: <?php echo $currentWeather['main']['temp']; ?> &#8451;</p>

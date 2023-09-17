@@ -7,7 +7,7 @@ class DataProcessor extends WeatherAPI
     public $latitude;
     public $longitude;
     public $weatherData;
-    public string $message = '';
+    public array $messages = [];
 
     public function __construct($apiKey, $latitude, $longitude)
     {
@@ -21,19 +21,40 @@ class DataProcessor extends WeatherAPI
     public function fetchWeatherData()
     {
         $apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={$this->latitude}&lon={$this->longitude}&appid={$this->apiKey}";
-        $json = file_get_contents($apiUrl);
+
+        $context = stream_context_create([
+            'http' => [
+                'ignore_errors' => true, // Ignore HTTP errors
+            ],
+        ]);
+
+        $json = file_get_contents($apiUrl, false, $context);
+
+        if ($json === false) {
+            $errorData = error_get_last();
+            if (strpos($errorData['message'], '404 Not Found') !== false) {
+                $this->addMessage('City not found. Please check the city name and try again.');
+            } elseif (strpos($errorData['message'], '400 Bad Request') !== false) {
+                $this->addMessage('Bad request. Please verify your input and try again.');
+            } else {
+                $this->addMessage('Unable to connect to the weather service. Please try again later.');
+            }
+            return;
+        }
+
+
         $this->weatherData = json_decode($json, true);
     }
 
     public function getCurrentWeather()
     {
-        return $this->weatherData['list'][0] ?? ($this->message = "Unable to fetch current weather data.");
+        return $this->weatherData['list'][0] ?? $this->addMessage("Unable to fetch current weather data.");
     }
 
     public function getHourlyWeather()
     {
         if (!isset($this->weatherData['list'])) {
-            return $this->message = "Unable to fetch hourly weather data.";
+            return $this->addMessage("Unable to fetch hourly weather data.");
         } else {
             $hourlyWeather = array();
             for ($i = 0; $i <= 5; $i++) $hourlyWeather[] = $this->weatherData['list'][$i];
@@ -44,7 +65,7 @@ class DataProcessor extends WeatherAPI
     public function getWeeklyForecast()
     {
         if (!isset($this->weatherData['list'])) {
-            return $this->message = "Unable to fetch weekly weather forecast data.";
+            return $this->addMessage("Unable to fetch weekly weather forecast data.");
         } else {
             $weeklyForecast = array();
             $today = '';
@@ -80,5 +101,10 @@ class DataProcessor extends WeatherAPI
             }
             return $weeklyForecast;
         }
+    }
+
+    public function addMessage($messages)
+    {
+        $this->messages[] = $messages;
     }
 }

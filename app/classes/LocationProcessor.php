@@ -29,15 +29,32 @@ class LocationProcessor extends DataProcessor
     public function setCoordinatesByName()
     {
         $geoUrl = "https://api.openweathermap.org/data/2.5/weather?q=$this->cityName&units=metric&appid=37cae92af4b42d8acfce79455b70c571";
-        $json = file_get_contents($geoUrl);
+        $context = stream_context_create([
+            'http' => [
+                'ignore_errors' => true, // Ignore HTTP errors
+            ],
+        ]);
+        $json = file_get_contents($geoUrl, false, $context);
+
+        if ($json === false) {
+            $errorData = error_get_last();
+            if (strpos($errorData['message'], '404 Not Found') !== false) {
+                $this->message = 'City not found. Please check the city name and try again.';
+            } elseif (strpos($errorData['message'], '400 Bad Request') !== false) {
+                $this->message = 'Bad request. Please verify your input and try again.';
+            } else {
+                $this->message = 'Unable to connect to the weather service. Please try again later.';
+            }
+            return;
+        }
+
         $geoData = json_decode($json, true);
 
-        if (!isset($geoData['coord']['lat']) || !isset($geoData['coord']['lon'])) {
-
-            $this->message = 'Unable to fetch coordinates for the specified city.';
-        } else {
+        if (isset($geoData['coord']['lat']) && isset($geoData['coord']['lon'])) {
             $this->latitude = $geoData['coord']['lat'];
             $this->longitude = $geoData['coord']['lon'];
+        } else {
+            $this->addMessage('City not found. Please check the city name and try again.');
         }
     }
 
@@ -66,7 +83,6 @@ class LocationProcessor extends DataProcessor
 
             if ($geoData !== null && !empty($geoData)) {
                 $this->cityName = $geoData[0]->name;
-                var_dump($this->cityName);
             } else {
                 $this->message = 'Unable to fetch city name from coordinates.';
             }
