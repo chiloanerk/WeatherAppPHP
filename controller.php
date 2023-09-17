@@ -25,19 +25,16 @@ else {
     // If no city is submitted, set default
     $cityName = 'London';
 }
-
-
-// Echo the city name
-echo "City Name: " . $cityName . '<br>';
+var_dump(new WeatherAPI($apiKey));
 
 // Initialize the WeatherDataProcessor with the API key
 $weatherAPI = new WeatherDataProcessor($apiKey, $userLocation->getLatitude(), $userLocation->getLongitude());
 
 try {
     // Use the user's location to get the current weather
-    $displayData = $weatherAPI->getFiveDayDailyForecast();
-    echo '<pre>';
-    print_r($displayData);
+    $currentWeather = $weatherAPI->getCurrentWeather();
+
+    include 'app/views/home/index.view.php';
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
 }

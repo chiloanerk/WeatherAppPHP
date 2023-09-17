@@ -53,8 +53,6 @@ class UserLocation Extends WeatherAPI
             // Fetch and parse the reverse geocoding data
             $geoResponse = file_get_contents($reverseGeocodingUrl);
             $geoData = json_decode($geoResponse);
-            var_dump($geoResponse);
-            echo '<br>';
             
             if ($geoData !== null && !empty($geoData)) {
                 return $this->cityName = $geoData[0]->name;
@@ -70,9 +68,6 @@ class UserLocation Extends WeatherAPI
         $geocodingUrl = "https://api.openweathermap.org/data/2.5/weather?q=$this->cityName&units=metric&appid=37cae92af4b42d8acfce79455b70c571";
         $geocodingJson = file_get_contents($geocodingUrl);
         $geocodingData = json_decode($geocodingJson, true);
-
-        var_dump($geocodingJson);
-        echo '<br>';
 
         if (isset($geocodingData['coord']['lat']) && isset($geocodingData['coord']['lon'])) {
             $this->latitude = $geocodingData['coord']['lat'];

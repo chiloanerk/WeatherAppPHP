@@ -19,7 +19,6 @@ class WeatherDataProcessor extends WeatherAPI
 
     private function fetchWeatherData() {
         $apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={$this->latitude}&lon={$this->longitude}&appid={$this->apiKey}";
-        var_dump($apiUrl);
         $json = file_get_contents($apiUrl);
         $this->weatherData = json_decode($json, true);
     }
