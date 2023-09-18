@@ -2,4 +2,4 @@
 
 global $router;
 $router->addRoute('GET', '/', 'home/index');
-$router->addRoute('GET', '/search', 'controller');
+$router->addRoute('GET', '/search', 'home/index');

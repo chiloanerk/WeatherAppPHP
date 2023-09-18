@@ -39,11 +39,11 @@ class LocationProcessor extends DataProcessor
         if ($json === false) {
             $errorData = error_get_last();
             if (strpos($errorData['message'], '404 Not Found') !== false) {
-                $this->message = 'City not found. Please check the city name and try again.';
+                $this->addMessage('City not found. Please check the city name and try again.');
             } elseif (strpos($errorData['message'], '400 Bad Request') !== false) {
-                $this->message = 'Bad request. Please verify your input and try again.';
+                $this->addMessage('Bad request. Please verify your input and try again.');
             } else {
-                $this->message = 'Unable to connect to the weather service. Please try again later.';
+                $this->addMessage('Unable to connect to the weather service. Please try again later.');
             }
             return;
         }
@@ -84,10 +84,10 @@ class LocationProcessor extends DataProcessor
             if ($geoData !== null && !empty($geoData)) {
                 $this->cityName = $geoData[0]->name;
             } else {
-                $this->message = 'Unable to fetch city name from coordinates.';
+                $this->addMessage('Unable to fetch city name from coordinates.');
             }
         } else {
-            $this->message = 'Latitude and longitude coordinates are not set.';
+            $this->addMessage('Latitude and longitude coordinates are not set.');
         }
     }
 }

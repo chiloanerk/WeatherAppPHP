@@ -7,6 +7,7 @@ class DataProcessor extends WeatherAPI
     public $latitude;
     public $longitude;
     public $weatherData;
+    public $currentData;
     public array $messages = [];
 
     public function __construct($apiKey, $latitude, $longitude)
@@ -21,6 +22,7 @@ class DataProcessor extends WeatherAPI
     public function fetchWeatherData()
     {
         $apiUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&lat={$this->latitude}&lon={$this->longitude}&appid={$this->apiKey}";
+        $currentUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&lat={$this->latitude}&lon={$this->longitude}&appid={$this->apiKey}";
 
         $context = stream_context_create([
             'http' => [
@@ -29,12 +31,13 @@ class DataProcessor extends WeatherAPI
         ]);
 
         $json = file_get_contents($apiUrl, false, $context);
+        $jsonCurrent = file_get_contents($currentUrl, false, $context);
 
-        if ($json === false) {
+        if ($json === false || $jsonCurrent === false) {
             $errorData = error_get_last();
-            if (strpos($errorData['message'], '404 Not Found') !== false) {
+            if (str_contains($errorData['message'], '404 Not Found')) {
                 $this->addMessage('City not found. Please check the city name and try again.');
-            } elseif (strpos($errorData['message'], '400 Bad Request') !== false) {
+            } elseif (str_contains($errorData['message'], '400 Bad Request')) {
                 $this->addMessage('Bad request. Please verify your input and try again.');
             } else {
                 $this->addMessage('Unable to connect to the weather service. Please try again later.');
@@ -44,11 +47,17 @@ class DataProcessor extends WeatherAPI
 
 
         $this->weatherData = json_decode($json, true);
+        $this->currentData = json_decode($jsonCurrent, true);
     }
 
     public function getCurrentWeather()
     {
         return $this->weatherData['list'][0] ?? $this->addMessage("Unable to fetch current weather data.");
+    }
+
+    public function getLiveWeather()
+    {
+        return $this->currentData ?? $this->addMessage("Unable to fetch live data");
     }
 
     public function getHourlyWeather()
@@ -86,12 +95,12 @@ class DataProcessor extends WeatherAPI
                 if ($minTemp !== null && $maxTemp !== null) {
                     if ($day !== $today) {
                         $today = $day;
-                        $dateFormatted = date('M d', $dateTime);
+                        $dateFormatted = date('l', $dateTime);
                         $weeklyForecast[$dateFormatted] = [
                             'icon' => $entry['weather'][0]['icon'],
                             'description' => $entry['weather'][0]['description'],
-                            'min_temp' => $minTemp,
-                            'max_temp' => $maxTemp
+                            'min_temp' => round($minTemp),
+                            'max_temp' => round($maxTemp).'°C'
                         ];
                     }
                     // Reset
