@@ -1,9 +1,9 @@
 <div id="search"
-     class="rounded-xl p-2 bg-gray-100 md:col-span-2 <?php if (!empty($_SESSION['error_messages'])) echo 'h-24'; ?>">
+     class="rounded-xl p-2 bg-gray-100 dark:bg-gray-500 md:col-span-2 <?php if (!empty($_SESSION['error_messages'])) echo 'h-24'; ?>">
     <div class="">
         <form id="weatherForm" class="flex items-center justify-center" action="/search">
             <button type="button" onclick="getLocation()"
-                    class="p-2 mr-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="p-2 mr-2 text-sm font-medium text-white bg-blue-500 border border-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin" width="20"
                      height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
                      stroke-linecap="round" stroke-linejoin="round">
@@ -22,7 +22,7 @@
                        placeholder="Search city name" required>
             </div>
             <button type="submit"
-                    class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-500 border border-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-500 border border-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                      viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
