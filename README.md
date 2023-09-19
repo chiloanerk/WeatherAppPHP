@@ -15,7 +15,7 @@ This repository contains a basic weather app built using some form of MVC via my
 
    ```bash
    git clone https://github.com/chiloanerk/PHPWeather.git
-2. Configure your web server to point to the public directory as the document root.
+2. Configure your web server to point to the public directory as the document root. I use ```php -S localhost:port -t public```
 3. Define your routes in the app/routes/routes.php file.
 4. Customize your controllers and views according to your project's requirements.
 5. Access your web application in the browser and navigate to the defined routes.
