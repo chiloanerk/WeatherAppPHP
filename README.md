@@ -30,10 +30,15 @@ This repository contains a basic weather app built using some form of MVC via my
 
 1. Mobile Dark and Light
 
-- ![Alt Text](screenshots/screenshot-mobile.png)
-- ![Alt Text](screenshots/screenshot-mobile-dark.png)
+<div style="display: flex;">
+    <img src="screenshots/screenshot-mobile.png" alt="Mobile Light" style="flex: 1; padding: 10px;">
+    <img src="screenshots/screenshot-mobile-dark.png" alt="Mobile Dark" style="flex: 1; padding: 10px;">
+</div>
+
 
 2. Desktop Dark and Light
 
-- ![Alt Text](screenshots/screenshot-desktop.png)
-- ![Alt Text](screenshots/screenshot-desktop-dark.png)
+<div style="display: flex;">
+    <img src="screenshots/screenshot-desktop.png" alt="Desktop Light" style="flex: 1; padding: 10px;">
+    <img src="screenshots/screenshot-desktop-dark.png" alt="Desktop Dark" style="flex: 1; padding: 10px;">
+</div>
