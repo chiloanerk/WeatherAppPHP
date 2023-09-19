@@ -25,3 +25,15 @@ This repository contains a basic weather app built using some form of MVC via my
 - Create controllers in the app/controllers directory.
 - Views are accessed using the custom function ```views('name')```
 - Place views in the app/views directory using format ```name.view.php```.
+
+## Screenshots
+
+1. Mobile Dark and Light
+
+- ![Alt Text](screenshots/screenshot-mobile.png)
+- ![Alt Text](screenshots/screenshot-mobile-dark.png)
+
+2. Desktop Dark and Light
+
+- ![Alt Text](screenshots/screenshot-desktop.png)
+- ![Alt Text](screenshots/screenshot-desktop-dark.png)
