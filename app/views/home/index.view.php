@@ -1,5 +1,5 @@
 <?php include base_path('app/views/partials/header.view.php'); ?>
-    <div class="container mx-auto pt-4">
+    <div class="container mx-auto p-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <?php include base_path('app/views/partials/search.view.php'); ?>
             <div id="today" class="grid grid-rows-2 gap-6">
