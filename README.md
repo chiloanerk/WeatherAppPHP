@@ -32,10 +32,10 @@ This repository contains a basic weather app built using some form of MVC via my
 
 | Mobile Light | Mobile Dark |
 |--------------|-------------|
-| ![Mobile Light](screenshots/screenshot-mobile.png) | ![Mobile Dark](screenshots/screenshot-mobile-dark.png) |
+| ![Mobile Light](screenshots/screenshot-mobile-light.png) | ![Mobile Dark](screenshots/screenshot-mobile-dark.png) |
 
 2. Desktop Dark and Light
 
 | Desktop Light | Desktop Dark |
 |---------------|--------------|
-| ![Desktop Light](screenshots/screenshot-desktop.png) | ![Desktop Dark](screenshots/screenshot-desktop-dark.png) |
+| ![Desktop Light](screenshots/screenshot-desktop-light.png) | ![Desktop Dark](screenshots/screenshot-desktop-dark.png) |
