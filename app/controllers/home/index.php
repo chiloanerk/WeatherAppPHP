@@ -3,6 +3,8 @@
 use app\classes\DataProcessor;
 use app\classes\LocationProcessor;
 
+session_start();
+
 // Default values
 $cityName = 'Johannesburg';
 $latitude = null;
@@ -31,37 +33,15 @@ $weeklyForecast = $weatherData->getWeeklyForecast();
 
 $messages = $weatherData->messages;
 
-if (isset($messages)) {
-    // Default values
-    $cityName = 'Johannesburg';
-    $latitude = null;
-    $longitude = null;
-
-    // Create a LocationProcessor instance based on the available data
-    $locationData = new LocationProcessor($cityName, $latitude, $longitude);
-
-// Retrieve the weather data
-    $weatherData = new DataProcessor($locationData->apiKey, $locationData->getLatitude(), $locationData->getLongitude());
-
-    $currentWeather = $weatherData->getLiveWeather();
-
-    $hourlyForecast = $weatherData->getHourlyWeather();
-
-    $weeklyForecast = $weatherData->getWeeklyForecast();
-
+if (empty($messages)) {
     view('home/index', [
         'currentWeather' => $currentWeather,
         'hourlyForecast' => $hourlyForecast,
         'weeklyForecast' => $weeklyForecast,
         'messages' => $messages
     ]);
-
 } else {
-
-    view('home/index', [
-        'currentWeather' => $currentWeather,
-        'hourlyForecast' => $hourlyForecast,
-        'weeklyForecast' => $weeklyForecast,
-        'messages' => $messages
-    ]);
+    $_SESSION['error_messages'] = $messages;
+    var_dump($_SESSION['error_messages']);
+    header('Location: /');
 }

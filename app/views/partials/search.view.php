@@ -1,5 +1,5 @@
 <div id="search"
-     class="rounded-xl p-2 bg-gray-100 md:col-span-2 <?php if (!empty($messages)) echo 'h-24'; ?>">
+     class="rounded-xl p-2 bg-gray-100 md:col-span-2 <?php if (!empty($_SESSION['error_messages'])) echo 'h-24'; ?>">
     <div class="">
         <form id="weatherForm" class="flex items-center justify-center" action="/search">
             <button type="button" onclick="getLocation()"
@@ -32,9 +32,12 @@
             </button>
         </form>
     </div>
-    <?php if (!empty($messages)) : ?>
+    <?php if (!empty($_SESSION['error_messages'])) : ?>
     <div class="flex justify-center">
-        <span class="text-red-500 text-xs"><?php foreach ($messages as $message) echo $message . " | "; ?></span>
+        <span class="text-red-500 text-xs">
+            <?php echo $_SESSION['error_messages'][0]; ?>
+            <?php unset($_SESSION['error_messages']) ?>
+        </span>
     </div>
     <?php endif; ?>
 </div>
