@@ -13,6 +13,6 @@
         </div>
     </div>
     <div class="col-span-2 flex item-center justify-end p-2">
-        <img src="http://openweathermap.org/img/wn/<?= $currentWeather['weather'][0]['icon']; ?>@2x.png" alt="">
+        <img src="http://openweathermap.org/img/wn/<?= $currentWeather['weather'][0]['icon']; ?>@2x.png" alt="<?= $currentWeather['weather'][0]['description'] ?> icon">
     </div>
 </div>

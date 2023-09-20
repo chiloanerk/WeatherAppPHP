@@ -1,6 +1,9 @@
 function getLocation() {
+    console.log('script load pass')
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition, function (error){
+            console.log('Geolocation error:', error)
+        });
     } else {
         alert("Geolocation is not supported by this browser.");
     }
