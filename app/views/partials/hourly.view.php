@@ -3,7 +3,7 @@
     <?php
     foreach ($hourlyForecast as $data) : ?>
         <div class="grid grid-rows-3 h-full">
-            <div class="flex items-center justify-center"><?= date('g:i A', $data['dt']); ?></div>
+            <div class="flex items-center justify-center"><?= date('g A', $data['dt']); ?></div>
             <div class="flex items-center justify-center">
                 <img src="https://openweathermap.org/img/wn/<?= $data['weather'][0]['icon']; ?>.png"
                      alt="<?= $data['weather'][0]['description']; ?>">
