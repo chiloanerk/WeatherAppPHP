@@ -24,8 +24,8 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="./css/styles.css" type="text/css">
-<!--    <script src="https://cdn.tailwindcss.com"></script>-->
-<!--    <script src="js/geolocation.js" defer></script>-->
+<!--    <link rel="stylesheet" href="./css/styles.css" type="text/css">-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/geolocation.js" defer></script>
 </head>
 <body class="dark:bg-gray-700">
