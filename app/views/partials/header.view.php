@@ -26,6 +26,6 @@
 
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
 <!--    <script src="https://cdn.tailwindcss.com"></script>-->
-    <script src="js/geolocation.js" defer></script>
+<!--    <script src="js/geolocation.js" defer></script>-->
 </head>
 <body class="dark:bg-gray-700">
