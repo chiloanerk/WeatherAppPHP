@@ -1,4 +1,4 @@
-<div id="current" class="grid grid-cols-3 gap-2 rounded-xl bg-blue-200">
+<div id="current" class="grid grid-cols-3 gap-2 bg-blue-200 bg-opacity-70 backdrop-blur-lg rounded drop-shadow-lg">
     <div class="p-2 grid grid-rows-3">
         <div class="row-span-2 grid grid-rows-3">
             <p class="text-4xl row-span-2"><?=

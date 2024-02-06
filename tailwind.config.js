@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./app/views/**/*.php'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "lato": ['Lato', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }

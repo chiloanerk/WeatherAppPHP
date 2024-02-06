@@ -1,5 +1,5 @@
 <div id="hourly"
-     class="flex items-center justify-center rounded-xl p-2 bg-blue-200 grid grid-cols-6 gap-1">
+     class="flex items-center justify-center bg-blue-200 bg-opacity-70 backdrop-blur-lg rounded drop-shadow-lg grid grid-cols-6 gap-1">
     <?php
     foreach ($hourlyForecast as $data) : ?>
         <div class="grid grid-rows-3 h-full">

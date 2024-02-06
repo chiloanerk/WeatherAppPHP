@@ -23,9 +23,12 @@
     <meta name="application-name" content="WeatherOnClick">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Rubik:wght@300&display=swap" rel="stylesheet">
 
-<!--    <link rel="stylesheet" href="./css/styles.css" type="text/css">-->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
     <script src="js/geolocation.js" defer></script>
 </head>
-<body class="dark:bg-gray-700">
+<body class="font-lato text-gray-900 flex items-center justify-center h-screen bg-gradient-to-t from-violet-600 to-cyan-400 dark:from-violet-900 dark:to-cyan-800">

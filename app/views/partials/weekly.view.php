@@ -1,4 +1,4 @@
-<div id="weekly-forecast" class="rounded-xl p-2 bg-blue-200">
+<div id="weekly-forecast" class="p-2 bg-blue-200 bg-opacity-70 backdrop-blur-lg rounded drop-shadow-lg">
     <div class="grid grid-rows gap-2">
         <?php foreach ($weeklyForecast as $day => $weatherData): ?>
             <div class="grid grid-cols-3 p-2">

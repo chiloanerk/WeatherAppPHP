@@ -1,5 +1,5 @@
 <div id="search"
-     class="rounded-xl p-2 bg-gray-100 dark:bg-gray-500 md:col-span-2 <?php if (!empty($_SESSION['error_messages'])) echo 'h-24'; ?>">
+     class="p-2 bg-white bg-opacity-70 backdrop-blur-lg rounded drop-shadow-lg dark:bg-gray-500 dark:bg-opacity-60  md:col-span-2 <?php if (!empty($_SESSION['error_messages'])) echo 'h-24'; ?>">
     <div class="">
         <form id="weatherForm" class="flex items-center justify-center" action="/search">
             <button type="button" onclick="getLocation()"
