@@ -7,7 +7,7 @@ This repository contains a basic weather app built using some form of MVC via my
 - Check current weather conditions for a specified city.
 - View hourly and weekly weather forecasts.
 - Supports searching for weather information by city name or geographic coordinates.
-- Error handling for invalid city names or coordinates and connection.
+- Error handling for invalid city names or coordinates and connection.![screenshot-desktop-light.png](screenshots%2Fscreenshot-desktop-light.png)
 
 ## Getting Started
 
