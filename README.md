@@ -7,7 +7,7 @@ This repository contains a basic weather app built using some form of MVC via my
 - Check current weather conditions for a specified city.
 - View hourly and weekly weather forecasts.
 - Supports searching for weather information by city name or geographic coordinates.
-- Error handling for invalid city names or coordinates and connection.![screenshot-desktop-light.png](screenshots%2Fscreenshot-desktop-light.png)
+- Error handling for invalid city names or coordinates and connection.![screenshot-desktop-light.png](screendumps%2Fscreenshot-desktop-l.png)
 
 ## Getting Started
 
@@ -32,12 +32,12 @@ This repository contains a basic weather app built using some form of MVC via my
 
 1. Mobile Dark and Light
 
-| Mobile Light | Mobile Dark |
-|--------------|-------------|
-| ![Mobile Light](screenshots/screenshot-mobile-light.png) | ![Mobile Dark](screenshots/screenshot-mobile-dark.png) |
+| Mobile Light                                         | Mobile Dark                                         |
+|------------------------------------------------------|-----------------------------------------------------|
+| ![Mobile Light](screendumps/screenshot-mobile-l.png) | ![Mobile Dark](screendumps/screenshot-mobile-d.png) |
 
 2. Desktop Dark and Light
 
-| Desktop Light | Desktop Dark |
-|---------------|--------------|
-| ![Desktop Light](screenshots/screenshot-desktop-light.png) | ![Desktop Dark](screenshots/screenshot-desktop-dark.png) |
+| Desktop Light                                          | Desktop Dark                                          |
+|--------------------------------------------------------|-------------------------------------------------------|
+| ![Desktop Light](screendumps/screenshot-desktop-l.png) | ![Desktop Dark](screendumps/screenshot-desktop-d.png) |
