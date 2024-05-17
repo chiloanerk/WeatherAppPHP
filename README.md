@@ -11,7 +11,7 @@ This repository contains a basic weather app built using some form of MVC via my
 
 ## Getting Started
 
-- To test the app, goto http://129.151.181.76/
+- To test the app, goto http://129.151.181.76/ **Sorry deleted the server, no longer accessible**
 
 1. Clone the repository to your local environment:
 
